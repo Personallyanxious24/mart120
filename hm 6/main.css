@@ -1,0 +1,27 @@
+span {
+    font-family: cursive;
+    color: rgb(92, 66, 17);
+}
+
+title
+{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 42px;
+    color:black;
+}
+
+body {
+  background-image: url(https://i.pinimg.com/1200x/d0/e2/e2/d0e2e26d2f56c546e2795071bfd95eac.jpg);
+}
+
+.myClass{
+    font-size: 22px;
+    color: indianred;
+    font-weight: lighter;
+}
+
+#myID{
+    font-size: 21px;
+    color: rgb(82, 28, 28);
+    font-weight: bolder;
+}

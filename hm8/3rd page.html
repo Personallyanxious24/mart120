@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Contact form</title>   
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+           function checkboxes()
+            { 
+                var FirstName = document.getElementById("FName").value;
+                var LastName = document.getElementById("lName").value;
+                var Email = document.getElementById("email").value;
+
+                if(FirstName == "")
+            {
+                document.getElementById("FName").style.backgroundColor = "red";
+                document.getElementById("FName").focus();
+                window.alert ("uh oh, try again");
+                
+            }
+            
+           
+
+            if(LastName == "") {
+
+            document.getElementById("lName").style.backgroundColor = "red";
+                document.getElementById("lName").focus();
+                
+           }
+           if(Email == "") {
+
+            document.getElementById("email").style.backgroundColor = "red"
+            document.getElementById("email").focus();
+           }
+        }
+        </script>
+            </head>
+             <body style="background-color: rgb(247, 247, 149);"></body>
+</head>
+<style>
+    span
+    {
+        background-color: 
+        rgb(230, 155, 17);
+    }
+</style>
+<body>
+
+    <h1 id="myID">Contact us!</h1>
+
+    <form action="nextPage.html" type="Post">
+    <span>First Name:<input type="text" id="FName"></span><br>
+    <span>Last Name:<input type="text" id="lName"></span><br>
+   <span> Email:<input type="text" id="email"></span><br>
+    <h3>Do you accept terms and conditions?</h3>
+        <input type="radio" name="yesorno"
+        value="yes"><span>yes</span><br>
+         <input type="radio" name="yesorno"
+         value="no"><span>no</span><br>
+    <button  id=""my Submit
+type="button"; onclick='checkboxes();'>Submit</button>
+</form>
+</body>
+<a
+href="file:///C:/Users/torre/OneDrive/Documents/creative%20coding%201/GitHub/Mart-120--test/hm%206/first%20page.html">Check out my favorites!</a>
+<a
+href="file:///C:/Users/torre/OneDrive/Documents/creative%20coding%201/GitHub/Mart-120--test/hm%206/2nd%20page.html">Check out my art!</a>
+
+</html>
