@@ -51,72 +51,36 @@ function setup()
 function draw()
 {
     background(120, 45, 78);
-    
 
-    stroke(0);
+    movePlayer(); 
+    createPlayer();
+  drawClickObject();
+  
+     moveGreenObstacle();
+    moveBlueObstacle();
+     drawGreenObstacle();
+      drawBlueObstacle();
+   
+    drawBorder();
+    drawExit();
+exitCondition();
+    
+    }
+
+// Mouse click event
+function mouseClicked() {
+        clickX = mouseX;
+        clickY = mouseY;
+    }
+function createPlayer() {
     fill(0);
     rect(playerX, playerY, playerWidth, playerHeight);
+}
 
-    fill(111, 143, 114);
-    rect(obstacleX, obstacleY, obstacleWidth, obstacleHeight);
+// Player movement
+function movePlayer() {
 
-    fill(1, 23, 47);
-    rect(obstacle2x, obstacle2y, obstacle2Width, obstacle2Height);
-
-    fill(226,222,132)
-    rect(clickX, clickY, clickSize, clickSize);
-
-    fill(125, 83, 222);
-    rect(exitX, exitY, exitWidth, exitHeight);
-    // Move obstacles
-    obstacleX += obstacleXSpeed;
-    obstacleY += obstacleYSpeed;
-    obstacle2x += obstacle2XSpeed;
-    obstacle2y += obstacle2YSpeed;
-
-    // Green obstacle: horizontal wrapping
-    if (obstacleX > width) {
-        obstacleX = -obstacleWidth;
-    }
-    else if (obstacleX < -obstacleWidth) {
-        obstacleX = width;
-    }
-
-    // Green obstacle: vertical wrapping
-    if (obstacleY > height) {
-        obstacleY = -obstacleHeight;
-    }
-    else if (obstacleY < -obstacleHeight) {
-        obstacleY = height;
-    }
-
-    // Blue obstacle: horizontal wrapping
-    if (obstacle2x > width) {
-        obstacle2x = -obstacle2Width;
-    }
-    else if (obstacle2x < -obstacle2Width) {
-        obstacle2x = width;
-    }
-
-    // Blue obstacle: vertical wrapping
-    if (obstacle2y > height) {
-        obstacle2y = -obstacle2Height;
-    }
-    else if (obstacle2y < -obstacle2Height) {
-        obstacle2y = height;
-    }
-
-    //exit condition
-    if (playerX < exitX + exitWidth &&
-        playerX + playerWidth > exitX &&
-        playerY < exitY + exitHeight &&
-        playerY + playerHeight > exitY) {
-        // Player has reached the exit
-        text("You Win!", 100, 250);
-    }
     
-
-    // Player movement
     if (keyIsDown(w)) {
         playerY -= 5;
         if (playerY < 0) {
@@ -145,8 +109,75 @@ function draw()
         }
     }
 }
-// Mouse click event
-function mouseClicked() {
-        clickX = mouseX;
-        clickY = mouseY;
+function drawClickObject(){
+fill(0);
+rect(clickX, clickY, clickSize, clickSize); 
+ }  
+
+function drawGreenObstacle() {
+     fill(111, 143, 114);
+    rect(obstacleX, obstacleY, obstacleWidth, obstacleHeight);
+}
+
+function drawBlueObstacle() {
+    fill(1, 23, 47);
+    rect(obstacle2x, obstacle2y, obstacle2Width, obstacle2Height);
+}
+
+function moveGreenObstacle() {
+    obstacleX += obstacleXSpeed;
+    obstacleY += obstacleYSpeed;
+    if (obstacleX > width) {
+        obstacleX = -obstacleWidth;
     }
+    else if (obstacleX < -obstacleWidth) {
+        obstacleX = width;
+    }
+    if (obstacleY > height) {
+        obstacleY = -obstacleHeight;
+    }
+    else if (obstacleY < -obstacleHeight) {
+        obstacleY = height;
+    }
+}
+
+
+function moveBlueObstacle() {
+    obstacle2x += obstacle2XSpeed;
+    obstacle2y += obstacle2YSpeed;
+    if (obstacle2y > height) {
+        obstacle2y = -obstacle2Height;
+    }
+    else if (obstacle2y < -obstacle2Height) {
+        obstacle2y = height;
+    }
+    if (obstacle2x > width) {
+        obstacle2x = -obstacle2Width;
+    }
+    else if (obstacle2x < -obstacle2Width) {
+        obstacle2x = width;
+    }
+}
+
+function drawBorder () {
+    fill(0);
+    rect(0, 0, width ,10);
+    rect(0, 0, 10, height);
+    rect(0, height - 10, width, 10);
+    rect(width - 10, 0, 10, height);    
+}
+         
+function drawExit() {
+    fill(125, 83, 222);
+    rect(exitX, exitY, exitWidth, exitHeight);
+}  
+
+function exitCondition() {
+    if (playerX < exitX + exitWidth &&
+        playerX + playerWidth > exitX &&
+        playerY < exitY + exitHeight &&
+        playerY + playerHeight > exitY) {
+        // Player has reached the exit
+        text("You Win!", 100, 250);
+    }  
+}
